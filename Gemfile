@@ -62,3 +62,6 @@ gem 'cancancan'
 
 #Populating Seed File
 gem 'faker'
+
+#aws-s3 for online storage
+gem "aws-sdk-s3", "~> 1.64"
