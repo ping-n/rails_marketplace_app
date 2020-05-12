@@ -1,2 +1,7 @@
-<h1>Listings#index</h1>
-<p>Find me in app/views/listings/index.html.erb</p>
+<h1>Listings Page</h1>
+
+<div>
+  <% @listings.each do |listing| %>
+    <%= render 'card', listing: listing %>
+  <% end %>
+</div>

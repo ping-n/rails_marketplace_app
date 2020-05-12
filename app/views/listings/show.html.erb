@@ -1,0 +1,9 @@
+<div class="list-content">
+  <%= image_tag @listing.picture, alt "A picture of #{listing.name}.", class: 'list-img' if @listing.picture.attached? %>
+  <div class="list-body">
+    <h5 class="list-title">Name: <%= @listing.name %></h5>
+    <h6 class="list-text">Brand: <%= @listing.brand %></h6>
+    <h6 class="list-text">Price: <%= @listing.price %></h6>
+    <h6 class="list-text">Condition: <%= @listing.condition %></h6>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="card-container">
+  <%= image_tag listing.picture, alt "A picture of #{listing.name}.", class: 'card-img' if listing.picture.attached? %>
+  <div class="card-body">
+    <h5 class="card-title">Name: <%= listing.name %></h5>
+    <h6 class="card-text">Brand: <%= listing.brand %></h6>
+    <h6 class="card-text">Price: <%= listing.price %></h6>
+    <h6 class="card-text">Condition: <%= listing.condition %></h6>
+  </div>
+</div>
