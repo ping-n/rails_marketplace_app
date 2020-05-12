@@ -1,8 +1,8 @@
 class CreateListings < ActiveRecord::Migration[6.0]
   def change
     create_table :listings do |t|
-      t.varchar :name
-      t.varchar :brand
+      t.string :name
+      t.string :brand
       t.decimal :price
       t.integer :condition
       t.boolean :sold
