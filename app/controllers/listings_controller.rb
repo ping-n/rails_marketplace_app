@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: %i[show edit update destroy]
+  before_action :authenticate_user!
   def index
     @listings = Listing.all
   end
@@ -11,7 +12,7 @@ class ListingsController < ApplicationController
   end
 
   def create
-    @listing = Listing.create(listing_params)
+    @listing = current_user.listings.create(listing_params)
     if @listing.errors.any?
       render :new
     else
