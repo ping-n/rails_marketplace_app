@@ -27,7 +27,7 @@ p "--" * 17
 puts 'Seeding Listings'
 listings.each do |listing|
   random_number = rand(1..6)
-  list = Listing.create(listing)
+  list = Listing.create(listing.except(:picture))
   list.picture.attach(
     io: File.open("app/assets/images/shoes/yeezy350-#{random_number}.jpg"),
     filename: "yeezy350-#{random_number}.jpg",
