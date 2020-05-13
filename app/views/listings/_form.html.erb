@@ -16,10 +16,10 @@
   </div>
 
   <div class="form-group">
-    <%= form.radio_button :condition, :used, :checked => true %> 
-    <%= label :condition, 'Used' %>
-    <%= form.radio_button :condition, :brand %>
-    <%= label :condition, 'Brand New' %>
+    <% @conditions.each do |option| %>
+      <%= form.radio_button :condition, option%> 
+      <%= form.label "condition_#{option}".to_sym, option %>
+    <% end %>
   </div>
 
   <div class="file-upload">
