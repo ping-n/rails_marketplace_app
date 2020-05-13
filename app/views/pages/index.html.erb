@@ -1,2 +1,7 @@
 <h1>Shoes4all</h1>
 
+<div>
+  <% @listings.each do |listing| %>
+    <%= render 'shared/card', listing: listing %>
+  <% end %>
+</div>
