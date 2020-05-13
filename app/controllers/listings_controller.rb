@@ -51,6 +51,7 @@ class ListingsController < ApplicationController
       :sold,
       :condition,
       :user_id,
+      :category_id,
       :picture
     )
   end
