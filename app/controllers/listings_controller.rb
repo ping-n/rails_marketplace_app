@@ -17,6 +17,7 @@ class ListingsController < ApplicationController
   def create
     @listing = current_user.listings.create(listing_params)
     if @listing.errors.any?
+      set_condition
       render :new
     else
       flash[:success] = 'You successfully added a new listing'
@@ -28,6 +29,7 @@ class ListingsController < ApplicationController
 
   def update
     if @listing.update(listing_params)
+      set_condition
       redirect_to @listing
     else
       render :edit

@@ -1,8 +1,15 @@
 <div class="card-container">
   <div class="card-body">
+    <%= image_tag listing.picture if listing.picture.attached?%>
     <h5 class="card-title">Name: <%= listing.name %></h5>
     <h6 class="card-text">Brand: <%= listing.brand %></h6>
     <h6 class="card-text">Price: <%= listing.price %></h6>
     <h6 class="card-text">Condition: <%= listing.condition %></h6>
+  </div>
+    <div class="crud-links">
+    <% if can? :edit, listing %>
+      <%= link_to 'Edit', edit_listing_path(listing.id) %>
+      <%= link_to 'Delete', edit_listing_path(listing.id), method: :delete %>
+    <% end %>
   </div>
 </div>
