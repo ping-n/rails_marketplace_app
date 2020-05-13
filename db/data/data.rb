@@ -22,7 +22,7 @@ def listings
       user_id: 2,
       category_id: 1
     },
-        {
+    {
       name: 'Yeezy v350 Frozen Yellow',
       brand: 'Adidas',
       price: 600,
@@ -30,7 +30,7 @@ def listings
       user_id: 2,
       category_id: 1
     },
-        {
+    {
       name: 'Yeezy v350 Zebra',
       brand: 'Adidas',
       price: 600,
@@ -41,8 +41,16 @@ def listings
     {
       name: 'Yeezy v350 Cream',
       brand: 'Adidas',
-      price: 600,
+      price: 700,
       condition: 0,
+      user_id: 1,
+      category_id: 1
+    },
+    {
+      name: 'Yeezy v350 Static Black',
+      brand: 'Adidas',
+      price: 1000,
+      condition: 1,
       user_id: 1,
       category_id: 1
     },
