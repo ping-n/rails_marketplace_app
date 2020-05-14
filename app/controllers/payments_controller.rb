@@ -21,4 +21,8 @@ class PaymentsController < ApplicationController
     ).id
     render json: { id: session_id, stripe_public_key: Rails.application.credentials.dig(:stripe, :public_key) }
   end
+
+  def success
+    render payments_success_path
+  end
 end
