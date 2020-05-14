@@ -63,8 +63,14 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'cancancan'
 
+#Admin Ability
+gem 'rails_admin'
+
 #Populating Seed File
 gem 'faker'
 
-#aws-s3 for online storage
-gem "aws-sdk-s3", "~> 1.64", require: false
+#Aws-s3 for online storage
+gem 'aws-sdk-s3', '~> 1.64', require: false
+
+#User payment
+gem "stripe", "~> 5.22"

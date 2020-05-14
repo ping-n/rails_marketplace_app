@@ -9,7 +9,7 @@ Category.destroy_all
 puts 'Data-base destroyed ✅'
 p "--" * 17
 puts 'Seeding Users'
-user = User.create(email: 'admin@mail.com', password: 'password', role: 1)
+user = User.create(email: 'admin@mail.com', password: 'pass123', role: 1)
 puts "Created User 1"
 user2 = User.create(email: 'p@mail.com', password: 'password')
 puts "Created User 2"

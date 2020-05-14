@@ -1,23 +1,18 @@
-<div class="row">
-<div class="col s12 m7">
+<div class="col s12 m3 l3">
   <div class="card">
+    <%= image_tag listing.picture, class:"card-img" if listing.picture.attached?%>
     <div class="card-body">
-      <div class="card-image">
-        <%= image_tag listing.picture if listing.picture.attached?%>
-      </div>
-      <div class="card-content">
-        <h5 class="card-title"><%= listing.name %></h5>
-        <h6 class="card-text">Brand: <%= listing.brand %></h6>
-        <h6 class="card-text">Price: <%= listing.price %></h6>
-        <h6 class="card-text">Condition: <%= listing.condition %></h6>
-      </div>
+      <p class="card-title"><%= listing.name %></p>
+      <p class="card-text">Brand: <%= listing.brand %></p>
+      <p class="card-text">Price: <%= listing.price %></p>
+      <p class="card-text">Condition: <%= listing.condition %></p>
     </div>
-      <div class="card-action">
+    <div class="card-body">
+      <%= link_to 'Show', listing_path(listing.id), class: "card-link"%>
       <% if can? :edit, listing %>
-        <%= link_to 'Edit', edit_listing_path(listing.id) %>
-        <%= link_to 'Delete', edit_listing_path(listing.id), method: :delete %>
+        <%= link_to 'Edit', edit_listing_path(listing.id), class: "card-link" %>
+        <%= link_to 'Delete', listing_path(listing.id), method: :delete, class: "card-link" %>
       <% end %>
     </div>
   </div>
-</div>
 </div>
