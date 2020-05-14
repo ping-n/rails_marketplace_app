@@ -14,7 +14,7 @@
         <%= link_to 'Edit', edit_listing_path(@listing.id) %>
         <%= link_to 'Delete', listing_path(@listing.id), method: :delete %>
       <% end %>
-      <% if current_user.id != @listing.user_id %>
+      <% if @listing.sold == false && current_user.id != @listing.user_id %>
         <%= link_to "Buy", "", id: "stripe", class: "btn btn-success" %>
       <% end %>
     </div>
