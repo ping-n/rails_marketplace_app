@@ -1,26 +1,20 @@
 <div class="row">
+  <h3 class="header"><%= @listing.name %></h3>
   <div class="col s12 m6">
-    <h3 class="header"><%= @listing.name %></h2>
-    <div class="card">
-      <div class="card-image" style="max-width:40%;">
-        <%= image_tag @listing.picture if @listing.picture.attached? %>
-      </div>
+    <%= image_tag @listing.picture, class: :image if @listing.picture.attached? %>
+  </div>
+  <div class="col s12 m6">
+    <div class="product-info">
+      <h6 class="p-text">Brand: <%= @listing.brand %></h6>
+      <h6 class="p-text">Price: <%= @listing.price %></h6>
+      <h6 class="p-text">Condition: <%= @listing.condition %></h6>
     </div>
-    <div class="card">
-      <div class="card-stacked">
-        <div class="card-content">
-          <h6 class="card-text">Brand: <%= @listing.brand %></h6>
-          <h6 class="card-text">Price: <%= @listing.price %></h6>
-          <h6 class="card-text">Condition: <%= @listing.condition %></h6>
-        </div>
-        <div class="card-action">
-          <% if can? :edit, @listing %>
-            <%= link_to 'Edit', edit_listing_path(@listing.id) %>
-            <%= link_to 'Delete', edit_listing_path(@listing.id), method: :delete %>
-          <% end %>
-          <%= link_to 'Back', :back %>
-        </div>
-      </div>
+    <div class="links">
+      <% if can? :edit, @listing %>
+        <%= link_to 'Edit', edit_listing_path(@listing.id) %>
+        <%= link_to 'Delete', edit_listing_path(@listing.id), method: :delete %>
+      <% end %>
+      <%= link_to 'Back', :back %>
     </div>
   </div>
 </div>
