@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def index
-    @listings = Listing.all
+    @listings = Listing.where(sold: false)
   end
 end

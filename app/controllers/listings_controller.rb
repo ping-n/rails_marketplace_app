@@ -5,6 +5,8 @@ class ListingsController < ApplicationController
   load_and_authorize_resource
 
   def index
+    @sold = Listing.where(sold: true)
+    @unsold = Listing.where(sold: false)
     @listings = Listing.all
   end
 
