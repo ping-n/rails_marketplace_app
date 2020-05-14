@@ -1,6 +1,5 @@
 class PaymentsController < ApplicationController
- 
-  def get_stripe_id
+  def stripe_id
     @listing = Listing.find(params[:id])
     session_id = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
@@ -9,7 +8,7 @@ class PaymentsController < ApplicationController
         name: @listing.name,
         amount: @listing.price.to_i * 100,
         currency: 'aud',
-        quantity: 1,
+        quantity: 1
       }],
       payment_intent_data: {
         metadata: {
@@ -20,6 +19,6 @@ class PaymentsController < ApplicationController
       success_url: "#{root_url}payments/success?userId=#{current_user.id}&listingId=#{@listing.id}",
       cancel_url: "#{root_url}listings"
     ).id
-    render :json => {id: session_id, stripe_public_key: Rails.application.credentials.dig(:stripe, :public_key)}
+    render json: { id: session_id, stripe_public_key: Rails.application.credentials.dig(:stripe, :public_key) }
   end
 end

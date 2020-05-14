@@ -1,10 +1,14 @@
+<% if flash[:success] %>
+  <p><%= flash[:success] %></p>
+<% end %>
+
 <div class="row">
-  <h3 class="header"><%= @listing.name %></h3>
   <div class="col s12 m6">
-    <%= image_tag @listing.picture, class: :image if @listing.picture.attached? %>
+    <%= image_tag(@listing.picture, class: :'card-img' )if @listing.picture.attached?%>
   </div>
   <div class="col s12 m6">
     <div class="product-info">
+      <h3 class="header"><%= @listing.name %></h3>
       <h6 class="p-text">Brand: <%= @listing.brand %></h6>
       <h6 class="p-text">Price: <%= @listing.price %></h6>
       <h6 class="p-text">Condition: <%= @listing.condition %></h6>
@@ -14,7 +18,12 @@
         <%= link_to 'Edit', edit_listing_path(@listing.id) %>
         <%= link_to 'Delete', listing_path(@listing.id), method: :delete %>
       <% end %>
-      <%= link_to 'Back', :back %>
+      <% if current_user.id != @listing.user_id %>
+        <%= link_to "Buy", "", id: "stripe", class: "btn btn-success" %>
+      <% end %>
     </div>
   </div>
 </div>
+
+
+<%= javascript_pack_tag "stripe" %>
