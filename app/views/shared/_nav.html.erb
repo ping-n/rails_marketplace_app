@@ -1,19 +1,54 @@
-<nav class="navbar justify-content-end">
-  <ul>
-    <li class="navbar-nav">
-      <%= link_to "Home", root_path %>
-    </li>
-    <li class="navbar-nav">
-      <%= link_to "Listings", listings_path %>
-    </li class="navbar-nav">
-    <% if user_signed_in? %>
-      <li class="navbar-nav">
-        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li class="navbar-nav">
-        <%= link_to "Login", new_user_session_path %>
-      </li>
-    <% end %>
-  </ul>
+<nav>
+  <div class="nav-wrapper cyan accent-3">
+    <div class="container">
+      <a class='brand-logo left'>Shoes4all</a>
+      <!-- <a href="#" class="sidebar-trigger" data-target="mobile-nav"> 
+        <i class="material-icons">menu</i>
+      </a>
+      -->
+      <ul class="right hide-on-med-and-down">
+        <li>
+          <%= link_to "Home", root_path %>
+        </li>
+        <li>
+          <%= link_to "Listings", listings_path %>
+        </li>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "Login", new_user_session_path %>
+          </li>
+        <% end %>
+        <li>
+          <%= link_to "Sign Up", new_user_registration_path%>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
+
+<!--
+<ul class="sidenav" id="mobile-nav">
+  <li>
+    <%= link_to "Home", root_path %>
+  </li>
+  <li>
+    <%= link_to "Listings", listings_path %>
+  </li>
+  <% if user_signed_in? %>
+    <li>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+    </li>
+  <% else %>
+    <li>
+      <%= link_to "Login", new_user_session_path %>
+    </li>
+  <% end %>
+  <li>
+    <%= link_to "Sign Up", new_user_registration_path%>
+  </li>
+</ul>
+-->

@@ -1,7 +1,6 @@
 <h1>Listings Page</h1>
 
-<div>
-  <% @listings.each do |listing| %>
+
+<% @listings.each do |listing| %>
     <%= render 'shared/card', listing: listing %>
-  <% end %>
-</div>
+<% end %>
