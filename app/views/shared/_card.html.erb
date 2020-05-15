@@ -1,3 +1,4 @@
+<%# Card is shared for pages and listings %>
 <div class="col s12 m3 l3">
   <div class="card">
     <%= image_tag listing.picture, class:"card-img" if listing.picture.attached?%>
@@ -6,11 +7,12 @@
       <p class="card-text">Brand: <%= listing.brand %></p>
       <p class="card-text">Price: <%= listing.price %></p>
       <p class="card-text">Condition: <%= listing.condition %></p>
+      <%# Just testing will remove sold when listing is done %>
       <p class="card-text">Sold: <%= listing.sold %></p>
     </div>
     <div class="card-body">
       <%= link_to 'Show', listing_path(listing.id), class: "card-link"%>
-      <% if can? :edit, listing %>
+      <% if user_signed_in? && current_user.id == listing.user_id %>
         <%= link_to 'Edit', edit_listing_path(listing.id), class: "card-link" %>
         <%= link_to 'Delete', listing_path(listing.id), method: :delete, class: "card-link" %>
       <% end %>

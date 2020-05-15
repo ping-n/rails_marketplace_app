@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col s12 m6">
-    <%= image_tag(@listing.picture, class: :'card-img' )if @listing.picture.attached?%>
+    <%= image_tag(@listing.picture, class: :'card-img' ) if @listing.picture.attached?%>
   </div>
   <div class="col s12 m6">
     <div class="product-info">
@@ -15,11 +15,8 @@
         <%= link_to 'Delete', listing_path(@listing.id), method: :delete %>
       <% end %>
       <% if @listing.sold == false && current_user.id != @listing.user_id %>
-        <%= link_to "Buy", "", id: "stripe", class: "btn btn-success" %>
+        <%= link_to "Add to Cart", carts_path(listing_id: @listing.id), method: :post, class: "btn btn-success" %>
       <% end %>
     </div>
   </div>
 </div>
-
-
-<%= javascript_pack_tag "stripe" %>
