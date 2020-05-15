@@ -15,11 +15,8 @@
         <%= link_to 'Delete', listing_path(@listing.id), method: :delete %>
       <% end %>
       <% if @listing.sold == false && current_user.id != @listing.user_id %>
-        <%= link_to "Buy", "", id: "stripe", class: "btn btn-success" %>
+        <%= link_to "Add to Card", carts_path(listing_id: @listing.id), method:, class: "btn btn-success" %>
       <% end %>
     </div>
   </div>
 </div>
-
-
-<%= javascript_pack_tag "stripe" %>

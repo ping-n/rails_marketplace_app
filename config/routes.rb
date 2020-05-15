@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :listings
-  
+  resources :carts, only: [:create, :index]
   devise_for :users
   get "/payments/session", to: 'payments#stripe_id'
   get "/payments/success", to: "payments#success"

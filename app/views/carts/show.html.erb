@@ -1,0 +1,10 @@
+<h2>Cart</h2>
+<ul>
+  <% @cart.each do |listing| %>
+    <li>Listing: <%= listing.name %> | <%= number_to_currency(listing.price.to_i * 100) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Buy", "", id: "stripe", class: "btn btn-success" %>
+
+<%= javascript_pack_tag "stripe" %>
