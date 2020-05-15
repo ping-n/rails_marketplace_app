@@ -7,6 +7,9 @@
       <li class="nav-item">
         <%= link_to "Listings", listings_path, class: 'nav-link' %>
       </li>
+      <li class="nav-item">
+        <%= link_to "View Cart", carts_path, class: 'nav-link'%>
+      </li>
       <% if user_signed_in? %>
         <li  class="nav-item">
           <%= link_to "New Listing", new_listing_path, class: 'nav-link' %>
@@ -22,9 +25,6 @@
           <%= link_to "Sign Up", new_user_registration_path, class: 'nav-link'%>
         </li>
       <% end %>
-        <li class="nav-item">
-          <%= link_to "View Cart", carts_path, class: 'nav-link'%>
-        </li>
     </ul>
 </nav>
 
