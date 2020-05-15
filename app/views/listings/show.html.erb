@@ -6,7 +6,7 @@
     <div class="product-info">
       <h3 class="header"><%= @listing.name %></h3>
       <h6 class="p-text">Brand: <%= @listing.brand %></h6>
-      <h6 class="p-text">Price: <%= @listing.price %></h6>
+      <h6 class="p-text">Price: <%= number_to_currency(@listing.price) %></h6>
       <h6 class="p-text">Condition: <%= @listing.condition %></h6>
     </div>
     <div class="links">
