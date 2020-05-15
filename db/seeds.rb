@@ -25,12 +25,12 @@ end
 puts 'Successfully Seeded Categories ✅'
 p "--" * 17
 puts 'Seeding Listings'
-listings.each do |listing|
-  random_number = rand(1..6)
+listings.each_with_index do |listing, index|
+  counter = 
   list = Listing.create(listing.except(:picture))
   list.picture.attach(
-    io: File.open("app/assets/images/shoes/yeezy350-#{random_number}.jpg"),
-    filename: "yeezy350-#{random_number}.jpg",
+    io: File.open("app/assets/images/shoes/yeezy350-#{index+= 1}.jpg"),
+    filename: "yeezy350-#{index+= 1}.jpg",
     content_type: "image/jpg"
   )
   puts "created a #{list[:name]} listing"

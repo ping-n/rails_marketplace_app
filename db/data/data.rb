@@ -19,6 +19,7 @@ def listings
       brand: 'Adidas',
       price: 600,
       condition: 0,
+      description: 'Size: 7.5 US and Bought from Adidas.com',
       user_id: 2,
       category_id: 1
     },
@@ -27,6 +28,7 @@ def listings
       brand: 'Adidas',
       price: 600,
       condition: 1,
+      description: 'Size: 10 and Bought through a friend living in the US.',
       user_id: 2,
       category_id: 1
     },
@@ -35,7 +37,8 @@ def listings
       brand: 'Adidas',
       price: 600,
       condition: 0,
-      user_id: 1,
+      description: 'Size: 8 and worn it once, still in really good condition',
+      user_id: 3,
       category_id: 1
     },
     {
@@ -43,7 +46,8 @@ def listings
       brand: 'Adidas',
       price: 700,
       condition: 0,
-      user_id: 1,
+      description: 'Size: 6 and Bought from a friend but it was too small.',
+      user_id: 2,
       category_id: 1
     },
     {
@@ -51,16 +55,9 @@ def listings
       brand: 'Adidas',
       price: 1000,
       condition: 1,
-      user_id: 1,
+      description: 'Size: 7, won it from raffle and in really good condition',
+      user_id: 3,
       category_id: 1
     },
-    {
-      name: 'Kaws Pins',
-      brand: 'Kaws',
-      price: 50,
-      condition: 0,
-      user_id: 1,
-      category_id: 3
-    }
   ]
 end
