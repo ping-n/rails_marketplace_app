@@ -1,4 +1,6 @@
 class CartsController < ApplicationController
+  before_action :authenticate_user!
+  load_and_authorize_resource
   def index
     if current_user.cart
       @cart = current_user.cart.listings
@@ -14,7 +16,7 @@ class CartsController < ApplicationController
              current_user.cart
            end
     listing = Listing.find(params[:listing_id])
-    cart.listings << listing
-    redirect_to to listings_path
+    cart.listing_carts.create(listing: listing)
+    redirect_to listings_path
   end
 end

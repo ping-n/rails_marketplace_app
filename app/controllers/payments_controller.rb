@@ -28,16 +28,17 @@ class PaymentsController < ApplicationController
   end
 
   def webhook
-    payment_id = params[:data][:object][:payment_intent]
-    payment = Stripe::PaymentIntent.retrieve(payment_id)
-    listing_id = payment.metadata.listing_id
-    user_id = payment.metadata.user_id
-    listing = Listing.find(listing_id)
-    listing.sold = true
-    listing.save
-    Rails.logger.debug 'listing id ' + listing_id
-    Rails.logger.debug 'user id ' + user_id
+    # payment_id = params[:data][:object][:payment_intent]
+    # payment = Stripe::PaymentIntent.retrieve(payment_id)
+    # listing_id = payment.metadata.listing_id
+    # user_id = payment.metadata.user_id
+    # listing = Listing.find(listing_id)
+    # listing.sold = true
+    # listing.save
 
-    head 200
+    # # 'listing id ' + listing_id
+    # # 'user id ' + user_id
+
+    # head 200
   end
 end

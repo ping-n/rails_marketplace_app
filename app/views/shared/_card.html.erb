@@ -12,7 +12,7 @@
     </div>
     <div class="card-body">
       <%= link_to 'Show', listing_path(listing.id), class: "card-link"%>
-      <% if can? :edit, Listing %>
+      <% if user_signed_in? && current_user.id == listing.user_id %>
         <%= link_to 'Edit', edit_listing_path(listing.id), class: "card-link" %>
         <%= link_to 'Delete', listing_path(listing.id), method: :delete, class: "card-link" %>
       <% end %>

@@ -8,6 +8,7 @@ class Ability
     #
     user ||= User.new # guest user (not logged in)
     can :manage, Listing, user_id: user.id
+    can :manage, Cart, user_id: user.id
 
     if user.admin?
       can :manage, :all
