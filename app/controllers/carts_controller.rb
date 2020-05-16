@@ -5,6 +5,7 @@ class CartsController < ApplicationController
     if current_user.cart
       @cart = current_user.cart.listings
     else
+      flash[:alert] = "The Cart is empty"
       redirect_to listings_path
     end
   end

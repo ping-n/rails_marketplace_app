@@ -1,10 +1,13 @@
 <h2>Cart</h2>
+
+<div class="alert"><%= flash[:alert] %></div>
+
 <ul>
   <% @cart.each do |listing| %>
     <li>Listing: <%= listing.name %> | Price: <%= number_to_currency(listing.price.to_i) %></li>
   <% end %>
 </ul>
 
-<%= link_to "Buy Now", "", id: "stripe", class: "btn btn-success" %>
+<%= link_to "Buy Now", "/payments/session", id: "stripe", class: "btn btn-success" %>
 
 <%= javascript_pack_tag "stripe" %>
