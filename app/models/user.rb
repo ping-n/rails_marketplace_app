@@ -7,8 +7,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :listings, dependent: :destroy
-  has_one :cart
-  has_one :user_info
+  has_one :cart, dependent: :destroy
+  has_one :user_info, dependent: :destroy
 
   def set_default_role
     self.role ||= :user
