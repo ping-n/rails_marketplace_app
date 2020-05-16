@@ -17,6 +17,18 @@ user2 = User.create(email: 'h@mail.com', password: 'password')
 puts "Created User 3"
 puts 'Successfully Seeded Users ✅'
 p "--" * 17
+puts 'Seeding Users Profile'
+for i in (1..3) do
+  UserInfo.create(
+    user_id: i,
+    first_name: Faker::Name.name,
+    surname: Faker::Name.last_name,
+    location: Faker::Address.city
+  )
+  puts "Created profile for User #{i} profile"
+end
+puts 'Successfully Seeded Users Profile ✅'
+p "--" * 17
 puts 'Seeding Categories'
 categories.each do |category|
   cat = Category.create(category)
