@@ -22,6 +22,22 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+#User authentication
+gem 'devise'
+gem 'cancancan'
+
+#Admin Ability
+gem 'rails_admin'
+
+#Populating Seed File
+gem 'faker'
+
+#Aws-s3 for online storage
+gem 'aws-sdk-s3', '~> 1.64', require: false
+
+#User payment
+gem "stripe", "~> 5.22"
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -45,7 +61,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   #rubocop for code formatting
-  gem 'rubocop-rails'
+  gem 'rubocop-rails', require: false
 end
 
 group :test do
@@ -59,18 +75,4 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-#User authentication
-gem 'devise'
-gem 'cancancan'
 
-#Admin Ability
-gem 'rails_admin'
-
-#Populating Seed File
-gem 'faker'
-
-#Aws-s3 for online storage
-gem 'aws-sdk-s3', '~> 1.64', require: false
-
-#User payment
-gem "stripe", "~> 5.22"
