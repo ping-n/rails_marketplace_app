@@ -1,16 +1,21 @@
 class PaymentsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:webhook]
   def stripe_id
-    @listing = Listing.find(params[:id])
+    @listing = current_user.cart
+    items = []
+    @listing.listings.each do |item|
+      items << {
+        name: item.name,
+        description: item.description,
+        amount: item.price.to_i * 100,
+        currency: 'aud',
+        quantity: 1
+      }
+    end
     session_id = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       customer_email: current_user.email,
-      line_items: [{
-        name: @listing.name,
-        amount: @listing.price.to_i * 100,
-        currency: 'aud',
-        quantity: 1
-      }],
+      line_items: items,
       payment_intent_data: {
         metadata: {
           user_id: current_user.id,
