@@ -5,6 +5,7 @@
 <ul>
   <% @cart.each do |listing| %>
     <li>Listing: <%= listing.name %> | Price: <%= number_to_currency(listing.price.to_i) %></li>
+    <li><%= link_to "Remove from Cart", destroy_cart_path(listing_id: listing.id), method: :delete, class: "btn btn-success" %></li>
   <% end %>
 </ul>
 

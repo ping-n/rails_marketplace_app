@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :listings
   resources :carts, only: [:create, :index]
   devise_for :users
+  delete "/cart", to: "carts#destroy", as: "destroy_cart"
   get "/payments/session", to: 'payments#stripe_id'
   get "/payments/success", to: "payments#success"
   post "/payments/webhook", to: "payments#webhook"
