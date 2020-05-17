@@ -4,7 +4,7 @@
   <div class="container">
     <h2><%= @profile.first_name %></h2>
     <p>
-      <%= link_to "Profile", profile_path %>
+      <%= link_to "Profile", profile_path(@profile.id) %>
     </p>
   </div>
 
