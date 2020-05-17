@@ -5,9 +5,8 @@ class ListingsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @sold = Listing.where(sold: true)
-    @unsold = Listing.where(sold: false)
-    @listings = Listing.all
+    @q = Listing.ransack(params[:q])
+    @listings = @q.result(distinct: true)
   end
 
   def show; end
@@ -23,7 +22,7 @@ class ListingsController < ApplicationController
       render :new
     else
       flash[:success] = 'You successfully added a new listing'
-      redirect_to root_path
+      redirect_to listings_path
     end
   end
 
@@ -40,7 +39,8 @@ class ListingsController < ApplicationController
 
   def destroy
     @listing.destroy
-    redirect_to root_path
+    flash[:success] = 'You successfully deleted the listing'
+    redirect_to listings_path
   end
 
   private

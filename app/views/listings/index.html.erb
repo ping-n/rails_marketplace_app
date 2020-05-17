@@ -1,7 +1,25 @@
-<h1>Listings Page</h1>
+<div class="container container-fluid">
+  <div class="content">
+    <h1>Listings Page</h1>
 
-<div class="row">
-    <% @listings.each do |listing| %>
-        <%= render 'shared/card', listing: listing %>
+    <% if flash[:success] %>
+      <p><%= flash[:success] %></p>
     <% end %>
+
+    <div class="container">
+      <div class="sorting">
+        <p class="sorting-links">Sort By: <%= sort_link(@q, :name, default_order: :asc) %></p>
+        <p class="sorting-links">Sort By: <%= sort_link(@q, :price, default_order: :asc) %></p>
+        <p class="sorting-links">Sort By: <%= sort_link(@q, :categorie, default_order: :asc) %></p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+          <% @listings.each do |listing| %>
+              <%= render 'shared/card', listing: listing %>
+          <% end %>
+      </div>
+    </div>
+  </div>
 </div>

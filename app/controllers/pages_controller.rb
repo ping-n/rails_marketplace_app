@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def index
-    @listings = Listing.where(sold: false)
+    @q = Listing.ransack(params[:q])
+    @listings = @q.result(distinct: true)
   end
 end

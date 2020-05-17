@@ -1,34 +1,41 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-">
-    <p class='navbar-brand'>Shoes4all</p>
-    <ul class="navbar-nav">
+<nav class="navbar navbar-expand-lg navbar-light navbar-fixed-top">
+  <div class="navbar-header">
+    <%= link_to "Shoes4all", root_path, class: 'navbar-brand'%>
+  </div>
+
+  <div class="form-inline my-2">
+    <%= search_form_for @q do |f| %> 
+    <%= f.search_field :name_or_brand_or_description_cont %>
+    <%= f.submit "Submit", class: "btn btn-success my-2 my-sm-0" %>
+    <% end %>
+  </div>
+
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <%= link_to "Listings", listings_path, class: 'nav-link' %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "View Cart", carts_path, class: 'nav-link'%>
+    </li>
+    <% if user_signed_in? %>
+      <li  class="nav-item">
+        <%= link_to "Dashboard", dashboard_path(id: current_user.id), class: 'nav-link' %>
+      </li>
+      <li  class="nav-item">
+        <%= link_to "New Listing", new_listing_path, class: 'nav-link' %>
+      </li>
+      <li  class="nav-item">
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link'%>
+      </li>
+    <% else %>
       <li class="nav-item">
-        <%= link_to "Home", root_path, class: 'nav-link' %>
+        <%= link_to "Login", new_user_session_path, class: 'nav-link' %>
       </li>
       <li class="nav-item">
-        <%= link_to "Listings", listings_path, class: 'nav-link' %>
+        <%= link_to "Sign Up", new_user_registration_path, class: 'nav-link btn-primary'%>
       </li>
-      <li class="nav-item">
-        <%= link_to "View Cart", carts_path, class: 'nav-link'%>
-      </li>
-      <% if user_signed_in? %>
-        <li  class="nav-item">
-          <%= link_to "Dashboard", dashboard_path(id: current_user.id), class: 'nav-link' %>
-        </li>
-        <li  class="nav-item">
-          <%= link_to "New Listing", new_listing_path, class: 'nav-link' %>
-        </li>
-        <li  class="nav-item">
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link'%>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Sign Up", new_user_registration_path, class: 'nav-link'%>
-        </li>
-      <% end %>
-    </ul>
+    <% end %>
+  </ul>
 </nav>
 
 

@@ -38,6 +38,9 @@ gem 'aws-sdk-s3', '~> 1.64', require: false
 #User payment
 gem "stripe", "~> 5.22"
 
+#Filter and search
+gem 'ransack'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
