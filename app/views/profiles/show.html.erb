@@ -9,8 +9,9 @@
       <h6 class="p-text">location: <%= @user.profile.location %></h6>
     </div>
     <div class="links">
-      <% if can? :edit, @listing %>
-        <%= link_to 'Edit Profile', edit_profile_path(current_user) %>
+      <% if current_user.id == @user.id %>
+        <%= link_to 'Edit Profile', edit_profile_path(current_user), class: "btn btn-success" %>
+        <%= link_to 'Change password', edit_user_registration_path(current_user), class: "btn btn-success"%>
       <% end %>
     </div>
   </div>

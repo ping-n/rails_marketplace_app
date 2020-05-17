@@ -26,6 +26,8 @@ class PaymentsController < ApplicationController
       success_url: "#{root_url}payments/success?userId=#{current_user.id}&listingId=#{@listing.id}",
       cancel_url: "#{root_url}listings"
     ).id
+
+    # rendering api key to when back?
     render json: { id: session_id, stripe_public_key: Rails.application.credentials.dig(:stripe, :public_key) }
   end
 
