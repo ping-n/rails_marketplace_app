@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col s12 m6">
+    <div class="product-info">
+      <h3 
+        class="header">
+        <%= @profile.user_infos.first_name %> | 
+        <%= @profile.user_infos.surname %>
+      </h3>
+      <h6 class="p-text">location: <%= @profile.user_infos.location %></h6>
+    </div>
+    <div class="links">
+      <% if can? :edit, @listing %>
+        <%= link_to 'Edit Profile', edit_profile_path(@profile.id) %>
+      <% end %>
+    </div>
+  </div>
+</div>
