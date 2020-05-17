@@ -2,6 +2,14 @@
   <div class="navbar-header">
     <%= link_to "Shoes4all", root_path, class: 'navbar-brand'%>
   </div>
+
+  <div class="form-inline my-2">
+    <%= search_form_for @q do |f| %> 
+    <%= f.search_field :name_or_brand_or_description_cont %>
+    <%= f.submit "Submit", class: "btn btn-success my-2 my-sm-0" %>
+    <% end %>
+  </div>
+
   <ul class="navbar-nav ml-auto">
     <li class="nav-item">
       <%= link_to "Listings", listings_path, class: 'nav-link' %>
