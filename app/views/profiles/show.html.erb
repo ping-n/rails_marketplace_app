@@ -3,14 +3,14 @@
     <div class="product-info">
       <h3 
         class="header">
-        <%= @profile.user_infos.first_name %> | 
-        <%= @profile.user_infos.surname %>
+        <%= @user.profile.first_name %> | 
+        <%= @user.profile.surname %>
       </h3>
-      <h6 class="p-text">location: <%= @profile.user_infos.location %></h6>
+      <h6 class="p-text">location: <%= @user.profile.location %></h6>
     </div>
     <div class="links">
       <% if can? :edit, @listing %>
-        <%= link_to 'Edit Profile', edit_profile_path(@profile.id) %>
+        <%= link_to 'Edit Profile', edit_profile_path(current_user) %>
       <% end %>
     </div>
   </div>

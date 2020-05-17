@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
   def edit; end
 
   def update
-    @profile.update(
+    @user.profile.update(
       profile_params
     )
     redirect_to
@@ -26,6 +26,6 @@ class ProfilesController < ApplicationController
   end
 
   def set_profile
-    @profile = current_user.user_info
+    @user = current_user
   end
 end
