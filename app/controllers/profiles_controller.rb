@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
     @user.profile.update(
       profile_params
     )
-    redirect_to
+    redirect_to profile_path
   end
 
   private
