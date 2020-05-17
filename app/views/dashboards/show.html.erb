@@ -1,0 +1,14 @@
+<h1>Dashboard</h1>
+
+<div class="row">
+  <div class="container">
+    <h2><%= @profile.first_name %></h2>
+    <p>
+      <%= link_to "Profile", profile_path %>
+    </p>
+  </div>
+
+  <% @listings.each do |listing| %>
+      <%= render 'shared/card', listing: listing %>
+  <% end %>
+</div>
