@@ -1,11 +1,11 @@
 <%# Card is shared for pages and listings %>
-<div class="col s12 m3 l3">
+<div class="col col-s12 col-m3 col-l3">
   <div class="card">
     <%= image_tag listing.picture, class:"card-img" if listing.picture.attached?%>
     <div class="card-body">
       <p class="card-title"><%= listing.name %></p>
       <p class="card-text">Brand: <%= listing.brand %></p>
-      <p class="card-text">Price: <%= listing.price %></p>
+      <p class="card-text">Price: <%= number_to_currency(listing.price) %></p>
       <p class="card-text">Condition: <%= listing.condition %></p>
       <%# Just testing will remove sold when listing is done %>
       <p class="card-text">Sold: <%= listing.sold %></p>

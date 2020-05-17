@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   # routes for users through devise 
   devise_for :users
   # routes for profile
-  resources :profiles, only: [:show, :edit, :update]
+  resources :profiles
+  # route for user dashboard
+  resources :dashboards, only: [:show]
   # routes for payment
   get "/payments/session", to: "payments#stripe_id"
   get "/payments/success", to: "payments#success"
