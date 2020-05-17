@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_one :cart, dependent: :destroy
   has_one :profile, dependent: :destroy
 
+  # Setting new user role to be user
   def set_default_role
     self.role ||= :user
   end
