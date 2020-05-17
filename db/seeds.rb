@@ -19,7 +19,7 @@ puts 'Successfully Seeded Users ✅'
 p "--" * 17
 puts 'Seeding Users Profile'
 for i in (1..3) do
-  UserInfo.create(
+  Profile.create(
     user_id: i,
     first_name: Faker::Name.name,
     surname: Faker::Name.last_name,

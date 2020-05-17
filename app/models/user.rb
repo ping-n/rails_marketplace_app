@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   has_many :listings, dependent: :destroy
   has_one :cart, dependent: :destroy
-  has_one :user_info, dependent: :destroy
+  has_one :profile, dependent: :destroy
 
   def set_default_role
     self.role ||= :user

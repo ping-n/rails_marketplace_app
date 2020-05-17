@@ -1,5 +1,6 @@
 class PaymentsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:webhook]
+
   def stripe_id
     @listing = current_user.cart
     items = []
