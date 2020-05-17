@@ -1,5 +1,9 @@
 <h1>Listings Page</h1>
 
+<% if flash[:success] %>
+  <p><%= flash[:success] %></p>
+<% end %>
+
 <div class="row">
     <% @listings.each do |listing| %>
         <%= render 'shared/card', listing: listing %>
