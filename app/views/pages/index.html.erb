@@ -1,5 +1,7 @@
-<div class="row">
+<div class="container">
+  <div class="row">
   <% @listings.each do |listing| %>
     <%= render 'shared/card', listing: listing %>
   <% end %>
+  </div>
 </div>
