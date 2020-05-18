@@ -1,14 +1,40 @@
 <h1>Dashboard</h1>
 
 <div class="row">
-  <div class="container">
-    <h2><%= @profile.first_name %></h2>
-    <p>
-      <%= link_to "Profile", profile_path(@profile.id) %>
-    </p>
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-header">
+        <h2><%= @profile.first_name %> | <%= @profile.surname %></h2>
+      </div>
+      <div class="card-body">
+        <p>
+          <%= link_to "Profile", profile_path(@profile.id) %>
+        </p>
+      </div>
+    </div>
   </div>
-
-  <% @listings.each do |listing| %>
-      <%= render 'shared/card', listing: listing %>
-  <% end %>
+  <div class="col-md-9">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+          <% @listings.each_with_index do |listing, index| %>
+            <tr>
+              <td><%= index+= 1 %></td>
+              <td><%= listing.name %></td>
+              <td><%= number_to_currency(listing.price) %></td>
+              <td><%= link_to 'Edit', edit_listing_path(listing.id), class: "card-link" %></td>
+              <td><%= link_to 'Delete', listing_path(listing.id), method: :delete, class: "card-link" %></td>
+            </tr>
+          <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
