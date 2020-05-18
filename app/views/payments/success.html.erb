@@ -1,36 +1,39 @@
-<div class="container">
-  <div class="col-sm-12 my-auto">
-    <div class="card alert-success">
-      <div class="card-body">
-        <h1 class="card-title">
-          Thank you
-        </h1>
-        <h5 class="card-text">
-          Your Payment was successful
-        </h2>
+<main class="container h-100">
+  <div class="row h-75 align-items-center text-center">
+    <div class="col-sm-12 my-auto">
+      <div class="card alert-success">
+        <div class="card-body">
+          <h1 class="card-title">
+            Thank you
+          </h1>
+          <h5 class="card-text">
+            Your Payment was successful
+          </h2>
+        </div>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Item</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <% @listings.each_with_index do |listing, index| %>
+                  <td><%= index+= 1 %></td>
+                  <td><%= listing.name %></td>
+                  <td><%= number_to_currency(listing.price) %></td>
+                <% end %>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <%= link_to 'Back', root_url, class: 'btn btn-success center' %>
       </div>
-      <div class="table-responsive">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Item</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <% @listings.each_with_index do |listing, index| %>
-                <td><%= index+= 1 %></td>
-                <td><%= listing.name %></td>
-                <td><%= number_to_currency(listing.price) %></td>
-              <% end %>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <%= link_to 'Back', root_url, class: 'btn btn-success center' %>
     </div>
   </div>
-</div>  
+</main>
+
 
