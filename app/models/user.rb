@@ -8,7 +8,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :listings, dependent: :destroy
-  has_one :cart, dependent: :destroy
+  has_many :carts, dependent: :destroy
   has_one :profile, dependent: :destroy
 
   # Setting new user role to be user
