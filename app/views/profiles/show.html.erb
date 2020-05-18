@@ -1,14 +1,16 @@
-<div class="row">
-  <div class="col s12 m6">
-    <div class="product-info">
-      <h3 
-        class="header">
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h2>
         <%= @user.profile.first_name %> | 
         <%= @user.profile.surname %>
-      </h3>
-      <h6 class="p-text">location: <%= @user.profile.location %></h6>
+      </h2>
+    <div class="card-img">
+      <%= image_tag 'https://picsum.photos/200/300' %>
     </div>
-    <div class="links">
+      <h6 class="card-text">location: <%= @user.profile.location %></h6>
+    </div>
+    <div class="card-link">
       <% if current_user.id == @user.id %>
         <%= link_to 'Edit Profile', edit_profile_path(profile_id: current_user.profile.id), class: "btn btn-success" %>
         <%= link_to 'Change password', edit_user_registration_path(current_user), class: "btn btn-success"%>
