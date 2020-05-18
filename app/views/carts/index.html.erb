@@ -14,14 +14,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <% @cart.each_with_index do |listing, index| %>
+          <% @cart.each_with_index do |listing, index| %>
+            <tr>
               <td><%= index+= 1 %></td>
               <td><%= listing.name %></td>
               <td><%= number_to_currency(listing.price) %></td>
               <td><%= link_to "Remove from Cart", destroy_cart_path(listing_id: listing.id), method: :delete, class: "btn btn-success" %></td>
-            <% end %>
-          </tr>
+            </tr>
+          <% end %>
         </tbody>
       </table>
       <div class="card-footer">
