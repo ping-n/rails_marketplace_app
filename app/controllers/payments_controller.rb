@@ -31,7 +31,7 @@ class PaymentsController < ApplicationController
 
   def success
     @listings = current_user.carts.last.listings
-    render payments_success_path
+    Cart.create(completed: false, user_id: current_user.id)
   end
 
   def webhook
