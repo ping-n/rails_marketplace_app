@@ -4,10 +4,11 @@
       <h2 class="card-title">
         Shopping Cart
       </h2>
-      <table class="table">
-        <thead>
+      <table class="table table-light table-bordered">
+        <thead class="thead-light">
           <tr>
             <th>#</th>
+            <th>Picture</th>
             <th>Item</th>
             <th>Price</th>
             <th>Remove</th>
@@ -17,6 +18,7 @@
           <% @cart.each_with_index do |listing, index| %>
             <tr>
               <td><%= index+= 1 %></td>
+              <td><%= image_tag listing.picture, class:"img-thumbnail" %></td>
               <td><%= listing.name %></td>
               <td><%= number_to_currency(listing.price) %></td>
               <td><%= link_to "Remove from Cart", destroy_cart_path(listing_id: listing.id), method: :delete, class: "btn btn-success" %></td>
