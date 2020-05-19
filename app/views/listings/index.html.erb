@@ -7,23 +7,19 @@
     <% end %>
 
   <div class="row">
-    <div class="row">
-      <div class="col">
+      <div class="col-3">
         <div class="sorting">
           <p class="sorting-links">Sort By: <%= sort_link(@q, :name, default_order: :asc) %></p>
           <p class="sorting-links">Sort By: <%= sort_link(@q, :price, default_order: :asc) %></p>
           <p class="sorting-links">Sort By: <%= sort_link(@q, :categorie, default_order: :asc) %></p>
         </div>
       </div>
+    <div class="col-8">
+      <div class="row">
+        <% @listings.each do |listing| %>
+          <%= render 'shared/card', listing: listing %>
+        <% end %>
+      </div>
     </div>
-    <div class="row">
-      <% @listings.each do |listing| %>
-        <%= render 'shared/card', listing: listing %>
-      <% end %>
-    </div>
-  </div>
-
-
-
-  </div>
+</div>
 </div>

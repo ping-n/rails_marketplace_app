@@ -1,5 +1,5 @@
 <div class="col-sm-12 col-md-4">
-  <div class="card" style="width:20rem;height:35rem">
+  <div class="card mt-auto">
     <%= link_to image_tag(listing.picture, class:"card-img-top"), listing_path(listing.id) %>
     <div class="card-body">
       <h4 class="card-title"><%= listing.name %></h4>
@@ -9,9 +9,11 @@
           <h5>Price: <%= number_to_currency(listing.price) %></h5>
         </div>
       </div>
-      <% if user_signed_in? && current_user.id == listing.user_id %>
-        <%= link_to 'Edit', edit_listing_path(listing.id), class: "card-link" %>
-        <%= link_to 'Delete', listing_path(listing.id), method: :delete, class: "card-link" %>
+      <% if user_signed_in? %>
+        <% if current_user.id == listing.user_id %>
+          <%= link_to 'Edit', edit_listing_path(listing.id), class: "card-link" %>
+          <%= link_to 'Delete', listing_path(listing.id), method: :delete, class: "card-link" %>
+        <% end %>
       <% end %>
     </div>
   </div>
