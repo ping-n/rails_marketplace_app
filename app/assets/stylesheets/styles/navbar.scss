@@ -6,7 +6,10 @@ $dropDown       : false;
 
 // Navbar colours
 .navbar {
+
   background-color: $bgDefault;
+  font-family: 'Permanent Marker', cursive;
+
   .navbar-brand {
     color: $colDefault;
     &:hover, &:focus {
