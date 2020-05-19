@@ -6,19 +6,26 @@ $dropDown       : false;
 
 // Navbar colours
 .navbar {
+
   background-color: $bgDefault;
+
   .navbar-brand {
+    font-family: 'Permanent Marker', cursive;
     color: $colDefault;
     &:hover, &:focus {
       color: $colHighlight; }}
+
   .navbar-text {
+    font-family: 'Permanent Marker', cursive;
     color: $colDefault; 
     a {
       color: $colHighlight;
       &:hover, &:focus {
         color: $colHighlight; }}}
+
   .navbar-nav {
     .nav-link {
+      font-family: 'Permanent Marker', cursive;
       color: $colDefault;
       border-radius: .25rem;
       margin: 0 0.25em;

@@ -1,5 +1,26 @@
-.page-image{
-  background-image: url("/app/assets/images/jumbotron.jpg");
+// Jumbotron
+.jumbotron{
+  background-image: url("jumbotron-2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 0;
+  font-family: 'Permanent Marker', cursive;
+
+  .container{
+    background-color: black;
+    opacity: 0.8;
+  }
+}
+
+// overwriting bootstrap font
+.display-1{
+  font-family: 'Permanent Marker', cursive;
+}
+
+.display-2{
+  font-family: 'Permanent Marker', cursive;
+}
+
+.display-4{
+  font-family: 'Permanent Marker', cursive;
 }
