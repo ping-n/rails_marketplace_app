@@ -6,8 +6,8 @@ class ListingsController < ApplicationController
 
   def index
     # Query the DB for where listing.sold == false
-    @q = Listing.ransack(sold_eq: false)
-    @listings = @q.result(distinct: true)
+    @q = Listing.with_attached_picture.ransack(sold_eq: false)
+    @listings = @q.result.includes(:category)
   end
 
   def show; end

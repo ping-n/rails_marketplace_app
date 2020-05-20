@@ -10,22 +10,19 @@ class User < ApplicationRecord
   has_many :carts, dependent: :destroy
   has_one :profile, dependent: :destroy
 
-  # Setting up DB validation
-  validates :first_name, presence: true, length: { minimum: 2, maximum: 30 }
-  validates :surname, presence: true, length: { minimum: 2, maximum: 30 }
-
   # Setting new user role to be user
   def set_default_role
     self.role ||= :user
   end
 
-  # Setting a profile page for user
+  # Setting a default profile for new user
   def create_profile
     Profile.create(
       user: self,
       first_name: 'First Name',
       surname: 'Surname',
-      location: 'Please Update Profile'
+      location: 'Please Update Profile',
+      description: Faker::Lorem.sentence(9)
     )
   end
 end
