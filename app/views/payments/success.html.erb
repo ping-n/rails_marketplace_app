@@ -20,13 +20,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <% @listings.each_with_index do |listing, index| %>
+              <% @listings.each_with_index do |listing, index| %>
+                <tr>
                   <td><%= index+= 1 %></td>
                   <td><%= listing.name %></td>
                   <td><%= number_to_currency(listing.price) %></td>
-                <% end %>
-              </tr>
+                </tr>
+              <% end %>
             </tbody>
           </table>
         </div>
