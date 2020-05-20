@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
     render file: Rails.root.join('public/403.html'), status: :forbidden
   end
 
+  # setting ransack so that search function in navbar
   def set_query
     @q = Listing.ransack(sold_eq: false)
   end

@@ -6,7 +6,7 @@ class User < ApplicationRecord
   after_create :create_profile
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  validates :first_name, presence: true
   has_many :listings, dependent: :destroy
   has_many :carts, dependent: :destroy
   has_one :profile, dependent: :destroy
@@ -16,12 +16,13 @@ class User < ApplicationRecord
     self.role ||= :user
   end
 
+  # Setting a profile page for user
   def create_profile
     Profile.create(
       user: self,
       first_name: 'First Name',
       surname: 'Surname',
-      location: 'Your Current Location'
+      location: 'Please Update Profile'
     )
   end
 end
