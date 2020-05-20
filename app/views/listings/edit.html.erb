@@ -1,5 +1,29 @@
-<h1>Edit <%= @listing.name  %></h1>
+<div class="container">
+  <% if @listing.errors.any? %>
+    <div id="error_explanation">
+      <h2 class="display-2">
+        <%= pluralize(@listing.errors.count, "error") %> prohibited
+        this listing from being saved:
+      </h2>
+      <ul>
+        <% @listing.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h1>Edit <%= @listing.name  %></h1>
+    </div>
 
-<%= render 'form' %>
-
-<%= link_to 'back', listing_path(@listing) %>
+    <div class="card-body">
+      <%= render 'form' %>
+    </div>
+    <div class="card-footer">
+      <%= link_to 'back', listing_path(@listing) %>
+    </div>
+  </div>
+</div>

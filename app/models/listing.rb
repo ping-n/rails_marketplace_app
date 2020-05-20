@@ -12,8 +12,11 @@ class Listing < ApplicationRecord
                                              too_long: 'Please ensure listing name is less than 40 characters' }
   validates :brand, presence: true, length: { minimum: 2,
                                               maximum: 15,
-                                              too_long: 'Please ensure listing name is less than 40 characters' }
-  validates :description, presence: true, length: { maximum: 300,
-                                                    too_long: 'Please ensure listing name is less than 300 characters' }
+                                              too_long: 'Please ensure listing brand is less than 40 characters' }
+  validates :description, presence: true,
+                          length: { maximum: 300,
+                                    too_long: 'Please ensure listing name is less than 300 characters' }
   validates :price, presence: true
+  validates :category, presence: true
+  validates :picture, presence: { message: 'need to to included in listing' }
 end
