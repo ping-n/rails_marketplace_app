@@ -6,10 +6,13 @@ class User < ApplicationRecord
   after_create :create_profile
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validates :first_name, presence: true
   has_many :listings, dependent: :destroy
   has_many :carts, dependent: :destroy
   has_one :profile, dependent: :destroy
+
+  # Setting up DB validation
+  validates :first_name, presence: true, length: { minimum: 2, maximum: 30 }
+  validates :surname, presence: true, length: { minimum: 2, maximum: 30 }
 
   # Setting new user role to be user
   def set_default_role

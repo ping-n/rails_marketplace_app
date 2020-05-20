@@ -5,4 +5,15 @@ class Listing < ApplicationRecord
   has_one_attached :picture
   has_many :listing_carts
   has_many :carts, through: :listing_carts
+
+  # Setting up DB Validation
+  validates :name, presence: true, length: { minimum: 2,
+                                             maximum: 30,
+                                             too_long: 'Please ensure listing name is less than 40 characters' }
+  validates :brand, presence: true, length: { minimum: 2,
+                                              maximum: 15,
+                                              too_long: 'Please ensure listing name is less than 40 characters' }
+  validates :description, presence: true, length: { maximum: 300,
+                                                    too_long: 'Please ensure listing name is less than 300 characters' }
+  validates :price, presence: true
 end
