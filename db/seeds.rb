@@ -9,11 +9,11 @@ Category.destroy_all
 puts 'Data-base destroyed ✅'
 p "--" * 17
 puts 'Seeding Users'
-user = User.create(email: 'admin@mail.com', password: 'pass123', role: 1)
+user = User.create(email: 'admin@mail.com', password: 'shoes123', role: 1)
 puts "Created User 1"
-user2 = User.create(email: 'p@mail.com', password: 'password')
+user2 = User.create(email: 'p@mail.com', password: 'password1')
 puts "Created User 2"
-user2 = User.create(email: 'h@mail.com', password: 'password')
+user2 = User.create(email: 'h@mail.com', password: 'password2')
 puts "Created User 3"
 puts 'Successfully Seeded Users ✅'
 p "--" * 17
