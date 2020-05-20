@@ -1,20 +1,31 @@
 <div class="container">
-  <div class="card">
-    <div class="card-header">
-      <h2>
-        <%= @user.profile.first_name %> | 
-        <%= @user.profile.surname %>
-      </h2>
-    <div class="card-img">
-      <%= image_tag 'https://picsum.photos/200/300' %>
+  <div class="row">
+    <div class="col-3">
+      <div class="card">
+        <div class="card-header">
+          <h2>
+            <%= @user.profile.first_name %> | 
+            <%= @user.profile.surname %>
+          </h2>
+        <div class="card-img">
+          <%= image_tag 'https://picsum.photos/200/300' %>
+        </div>
+          <h6 class="card-text">location: <%= @user.profile.location %></h6>
+        </div>
+        <div class="card-link">
+          <% if current_user.id == @user.id %>
+            <%= link_to 'Edit Profile', edit_profile_path(profile_id: current_user.profile.id), class: "btn btn-success" %>
+            <%= link_to 'Change password', edit_user_registration_path(current_user), class: "btn btn-success"%>
+          <% end %>
+        </div>
+      </div>
     </div>
-      <h6 class="card-text">location: <%= @user.profile.location %></h6>
-    </div>
-    <div class="card-link">
-      <% if current_user.id == @user.id %>
-        <%= link_to 'Edit Profile', edit_profile_path(profile_id: current_user.profile.id), class: "btn btn-success" %>
-        <%= link_to 'Change password', edit_user_registration_path(current_user), class: "btn btn-success"%>
-      <% end %>
+    <div class="col-9">
+      <div class="card">
+        <div class="card-body">
+          <p><%= @user.profile.description %></p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
