@@ -1,6 +1,6 @@
 <div class="container container-fluid">
   <div class="content">
-    <h1>Listings Page</h1>
+    <h1 class="display-2">Listings Page</h1>
 
     <% if flash[:success] %>
       <p><%= flash[:success] %></p>
@@ -11,7 +11,6 @@
         <div class="sorting">
           <p class="sorting-links">Sort By: <%= sort_link(@q, :name, default_order: :asc) %></p>
           <p class="sorting-links">Sort By: <%= sort_link(@q, :price, default_order: :asc) %></p>
-          <p class="sorting-links">Sort By: <%= sort_link(@q, :categories, default_order: :asc) %></p>
         </div>
       </div>
     <div class="col-8">

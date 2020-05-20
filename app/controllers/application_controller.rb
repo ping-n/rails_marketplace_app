@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_query
-    @q = Listing.ransack(params[:q])
+    @q = Listing.ransack(sold_eq: false)
   end
 end
