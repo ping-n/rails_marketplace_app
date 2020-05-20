@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   # setting ransack so that search function in navbar
   def set_query
-    @q = Listing.ransack(sold_eq: false)
+    # setting up eager loading for images when search
+    @q = Listing.with_attached_picture.ransack(sold_eq: false)
   end
 end

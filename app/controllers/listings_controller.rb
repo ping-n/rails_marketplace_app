@@ -7,6 +7,7 @@ class ListingsController < ApplicationController
   def index
     # Query the DB for where listing.sold == false
     @q = Listing.with_attached_picture.ransack(sold_eq: false)
+    # Query DB to eager load categories
     @listings = @q.result.includes(:category)
   end
 
