@@ -15,7 +15,7 @@ end
 def listings
   [
     {
-      name: 'Yeezy v350 Boost Hyperspace',
+      name: 'Yeezy v350 Hyperspace',
       brand: 'Adidas',
       price: 600,
       condition: 0,
