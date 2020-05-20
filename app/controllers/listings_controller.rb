@@ -5,7 +5,8 @@ class ListingsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @q = Listing.ransack(params[:q])
+    # Query the DB for where listing.sold == false
+    @q = Listing.ransack(sold_eq: false)
     @listings = @q.result(distinct: true)
   end
 
