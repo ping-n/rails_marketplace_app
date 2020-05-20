@@ -22,7 +22,7 @@ class User < ApplicationRecord
       first_name: 'First Name',
       surname: 'Surname',
       location: 'Please Update Profile',
-      description: Faker::Lorem.sentence(9)
+      description: Faker::Lorem.sentence
     )
   end
 end

@@ -21,7 +21,8 @@ class ProfilesController < ApplicationController
       :first_name,
       :surname,
       :location,
-      :user_id
+      :user_id,
+      :description
     )
   end
 
