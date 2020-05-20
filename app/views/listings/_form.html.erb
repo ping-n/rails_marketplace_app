@@ -22,6 +22,7 @@
   <div class="form-group">
     <% @conditions.each do |option| %>
       <%= form.radio_button :condition, option%> 
+      
       <%= form.label "condition_#{option}".to_sym, option %>
     <% end %>
   </div>

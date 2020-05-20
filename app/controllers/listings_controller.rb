@@ -6,9 +6,9 @@ class ListingsController < ApplicationController
 
   def index
     # Query the DB for where listing.sold == false
-    @q = Listing.with_attached_picture.ransack(sold_eq: false)
-    # Query DB to eager load categories
-    @listings = @q.result.includes(:category)
+    @q = Listing.ransack(params[:q])
+    # Query DB to display unsold listing and include category in the query
+    @listings = @q.result.with_attached_picture.where(sold: false).includes(:category)
   end
 
   def show; end
@@ -56,7 +56,8 @@ class ListingsController < ApplicationController
       :condition,
       :user_id,
       :category_id,
-      :picture
+      :picture,
+      :description
     )
   end
 
