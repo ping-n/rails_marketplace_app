@@ -41,6 +41,9 @@ gem "stripe", "~> 5.22"
 #Filter and search
 gem 'ransack'
 
+# Sanitize CSS and Html
+gem "sanitize", "~> 5.1"
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

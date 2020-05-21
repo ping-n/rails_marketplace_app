@@ -1,25 +1,37 @@
-<div class="row">
-  <div class="col s12 m6">
-    <%= image_tag(@listing.picture, class: :'card-img' ) if @listing.picture.attached?%>
-  </div>
-  <div class="col s12 m6">
-    <div class="product-info">
-      <h3 class="header"><%= @listing.name %></h3>
-      <h6 class="p-text">Brand: <%= @listing.brand %></h6>
-      <h6 class="p-text">Price: <%= number_to_currency(@listing.price) %></h6>
-      <h6 class="p-text">Condition: <%= @listing.condition %></h6>
+<div class="container">
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-img">
+          <%= image_tag(@listing.picture, class: :'card-img' ) if @listing.picture.attached?%>
+        </div>
+      </div>
     </div>
-    <div class="links">
-      <% if can? :edit, @listing %>
-        <%= link_to 'Edit', edit_listing_path(@listing.id) %>
-        <%= link_to 'Delete', listing_path(@listing.id), method: :delete %>
-      <% end %>
-      <% if user_signed_in? %>
-        <% if @listing.sold == false && current_user.id != @listing.user_id %>
-          <%= link_to "Add to Cart", carts_path(listing_id: @listing.id), method: :post, class: "btn btn-success" %>
-        <% end %>
-      <% end %>
-
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="header"><%= @listing.name %></h3>
+        </div>
+        <div class="card-body">
+          <h6 class="p-text">Brand: <%= @listing.brand %></h6>
+          <h6 class="p-text">Condition: <%= @listing.condition %></h6>
+          <div class="price text-success">
+            <h5 class="p-text">Price: <%= number_to_currency(@listing.price) %></h5>
+          </div>
+          <p class="text">Description: <%= @listing.description %> </p>
+        </div>
+        <div class="card-footer">
+          <% if can? :edit, @listing %>
+            <%= link_to 'Edit', edit_listing_path(@listing.id) %>
+            <%= link_to 'Delete', listing_path(@listing.id), method: :delete %>
+          <% end %>
+          <% if user_signed_in? %>
+            <% if @listing.sold == false && current_user.id != @listing.user_id %>
+              <%= link_to "Add to Cart", carts_path(listing_id: @listing.id), method: :post, class: "btn btn-success" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
