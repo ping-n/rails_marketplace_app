@@ -2,12 +2,12 @@
 
   <div class="form-group">
     <%= form.label :name %>
-    <%= sanitize form.text_field :name, class: 'form-control' %>
+    <%= form.text_field :name, class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= form.label :brand %>
-    <%= sanitize form.text_field :brand, class: 'form-control' %>
+    <%= form.text_field :brand, class: 'form-control' %>
   </div>
 
   <div class="form-group">
@@ -29,7 +29,7 @@
 
   <div class="form-group">
     <%= form.label :description %>
-    <%= sanitize form.text_area :description, autocomplete: 'off', placeholder: 'Please include shoes size and where you purchase the shoe from...', class: 'form-control'%>
+    <%= form.text_area :description, autocomplete: 'off', placeholder: 'Please include shoes size and where you purchase the shoe from...', class: 'form-control'%>
   </div>
 
   <div class="custom-file">
