@@ -158,6 +158,8 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
+    nokogumbo (2.0.2)
+      nokogiri (~> 1.8, >= 1.8.4)
     orm_adapter (0.5.0)
     parallel (1.19.1)
     parser (2.7.1.2)
@@ -262,6 +264,10 @@ GEM
     ruby-progressbar (1.10.1)
     ruby_dep (1.5.0)
     rubyzip (2.3.0)
+    sanitize (5.1.0)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.8.0)
+      nokogumbo (~> 2.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.3.0)
@@ -339,6 +345,7 @@ DEPENDENCIES
   ransack
   rspec-rails
   rubocop-rails
+  sanitize (~> 5.1)
   sass-rails (>= 6)
   selenium-webdriver
   spring
