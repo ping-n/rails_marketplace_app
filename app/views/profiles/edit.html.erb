@@ -1,11 +1,24 @@
 <div class="container">
+  <% if @user.errors.any? %>
+    <div class="alert-warning">
+      <h4 class="display-4">
+        <%= pluralize(@user.errors.count, "error") %> prohibited
+        this listing from being saved:
+      </h4>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div class="card">
     <div class="card-header">
       <h1>Edit Profile</h1>
     </div>
 
    <div class="card-body">
-    <%= form_with model: @profile, local: true do |form| %>
+    <%= form_with scope: @user, url: profile_path, local: true, method: "patch" do |form| %>
       <div class="form-group">
         <%= form.label :first_name %>
         <%= form.text_field :first_name, class: 'form-control' %>
